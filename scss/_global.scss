@@ -1,0 +1,102 @@
+body,
+html {
+  background-color: $bgcolor;
+  height: 100%;
+  color: $text;
+  @extend %rubik-400;
+  font-size: 18px;
+  line-height: 1.25;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.main {
+  flex-grow: 1;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+a {
+  color: $text;
+}
+
+.title {
+  display: block;
+  position: relative;
+  text-transform: uppercase;
+  color: $accent;
+  font-size: 70px;
+  width: max-content;
+  margin: 0 auto 100px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    height: 6px;
+    border-radius: 3px;
+    background-color: $text;
+  }
+}
+
+// Search items page
+
+.hidden {
+  display: none !important;
+}
+
+.hide {
+  opacity: 0;
+  animation-name: a1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes a1 {
+  to {
+    position: absolute;
+  }
+}
+
+// Class name for blur on background
+
+.section-blur {
+  height: 100vh;
+  backdrop-filter: blur(15px);
+  position: relative;
+  &:first-of-type {
+    border-radius: 40px 40px 0 0;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 40px 40px 0 0;
+    background-color: #000000a3;
+  }
+}
+
+// Smooth apperance
+
+.section {
+  transition: transform 1s, opacity 1s;
+}
+
+.section--hidden {
+  opacity: 0;
+  transform: translateY(9rem);
+}
